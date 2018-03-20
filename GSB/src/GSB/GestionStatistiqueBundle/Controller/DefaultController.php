@@ -10,4 +10,8 @@ class DefaultController extends Controller
     {
         return $this->render('GSBGestionStatistiqueBundle:Default:menu.html.twig');
     }
+	public function affichagerStatAction()
+	{
+		return $this->render('GSBGestionStatistiqueBundle:Default:statistiques.html.twig');
+	}
 }

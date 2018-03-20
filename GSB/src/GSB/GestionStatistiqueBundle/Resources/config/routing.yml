@@ -1,3 +1,7 @@
 gsb_gestion_statistique_homepage:
     path:     /
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:index }
+
+affichagestatistique:
+    path:     /statistiques
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:affichagerStat }
