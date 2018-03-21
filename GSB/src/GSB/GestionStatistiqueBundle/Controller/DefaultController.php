@@ -12,7 +12,7 @@ class DefaultController extends Controller
     }
 	public function afficherStatAction()
 	{
-		return $this->render('GSBGestionStatistiqueBundle:Default:statistiques.html.twig');
+		return $this->render('GSBGestionStatistiqueBundle:Default:statistiquesReg.html.twig');
 	}
 	public function afficherVisAction()
 	{
