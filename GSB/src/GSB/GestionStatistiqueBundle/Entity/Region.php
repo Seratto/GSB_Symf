@@ -41,6 +41,11 @@ class Region
      */
     private $nomReg;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Travailler")
+     */
+    private $travail;
+
 
     /**
      * Get id.
@@ -122,5 +127,80 @@ class Region
     public function getNomReg()
     {
         return $this->nomReg;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->visiteurs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add visiteur
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Visiteur $visiteur
+     *
+     * @return Region
+     */
+    public function addVisiteur(\GSB\GestionStatistiqueBundle\Entity\Visiteur $visiteur)
+    {
+        $this->visiteurs[] = $visiteur;
+
+        return $this;
+    }
+
+    /**
+     * Remove visiteur
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Visiteur $visiteur
+     */
+    public function removeVisiteur(\GSB\GestionStatistiqueBundle\Entity\Visiteur $visiteur)
+    {
+        $this->visiteurs->removeElement($visiteur);
+    }
+
+    /**
+     * Get visiteurs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVisiteurs()
+    {
+        return $this->visiteurs;
+    }
+
+    /**
+     * Add travail
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Travailler $travail
+     *
+     * @return Region
+     */
+    public function addTravail(\GSB\GestionStatistiqueBundle\Entity\Travailler $travail)
+    {
+        $this->travail[] = $travail;
+
+        return $this;
+    }
+
+    /**
+     * Remove travail
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Travailler $travail
+     */
+    public function removeTravail(\GSB\GestionStatistiqueBundle\Entity\Travailler $travail)
+    {
+        $this->travail->removeElement($travail);
+    }
+
+    /**
+     * Get travail
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTravail()
+    {
+        return $this->travail;
     }
 }

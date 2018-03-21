@@ -40,6 +40,11 @@ class Region
      * @ORM\Column(name="nom_reg", type="string", length=255)
      */
     private $nomReg;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Travailler")
+     */
+    private $travail;
 
 
     /**
@@ -122,5 +127,46 @@ class Region
     public function getNomReg()
     {
         return $this->nomReg;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->visiteurs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add visiteur
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Visiteur $visiteur
+     *
+     * @return Region
+     */
+    public function addVisiteur(\GSB\GestionStatistiqueBundle\Entity\Visiteur $visiteur)
+    {
+        $this->visiteurs[] = $visiteur;
+
+        return $this;
+    }
+
+    /**
+     * Remove visiteur
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Visiteur $visiteur
+     */
+    public function removeVisiteur(\GSB\GestionStatistiqueBundle\Entity\Visiteur $visiteur)
+    {
+        $this->visiteurs->removeElement($visiteur);
+    }
+
+    /**
+     * Get visiteurs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVisiteurs()
+    {
+        return $this->visiteurs;
     }
 }

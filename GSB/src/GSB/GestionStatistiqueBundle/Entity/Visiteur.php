@@ -41,9 +41,9 @@ class Visiteur
     private $dependDuDepartement;
 
     /**
-     * @ORM\ManyToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Region", cascade={"persit"})
+     * @ORM\ManyToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Travailler")
      */
-    private $regions;
+    private $travail;
 
     /**
      * @var string
@@ -281,5 +281,128 @@ class Visiteur
     public function getDateEmbauche()
     {
         return $this->dateEmbauche;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->regions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set responsableDuSecteur
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Secteur $responsableDuSecteur
+     *
+     * @return Visiteur
+     */
+    public function setResponsableDuSecteur(\GSB\GestionStatistiqueBundle\Entity\Secteur $responsableDuSecteur = null)
+    {
+        $this->responsableDuSecteur = $responsableDuSecteur;
+
+        return $this;
+    }
+
+    /**
+     * Get responsableDuSecteur
+     *
+     * @return \GSB\GestionStatistiqueBundle\Entity\Secteur
+     */
+    public function getResponsableDuSecteur()
+    {
+        return $this->responsableDuSecteur;
+    }
+
+    /**
+     * Set dependDuDepartement
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Departement $dependDuDepartement
+     *
+     * @return Visiteur
+     */
+    public function setDependDuDepartement(\GSB\GestionStatistiqueBundle\Entity\Departement $dependDuDepartement)
+    {
+        $this->dependDuDepartement = $dependDuDepartement;
+
+        return $this;
+    }
+
+    /**
+     * Get dependDuDepartement
+     *
+     * @return \GSB\GestionStatistiqueBundle\Entity\Departement
+     */
+    public function getDependDuDepartement()
+    {
+        return $this->dependDuDepartement;
+    }
+
+    /**
+     * Add region
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Region $region
+     *
+     * @return Visiteur
+     */
+    public function addRegion(\GSB\GestionStatistiqueBundle\Entity\Region $region)
+    {
+        $this->regions[] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Remove region
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Region $region
+     */
+    public function removeRegion(\GSB\GestionStatistiqueBundle\Entity\Region $region)
+    {
+        $this->regions->removeElement($region);
+    }
+
+    /**
+     * Get regions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRegions()
+    {
+        return $this->regions;
+    }
+
+    /**
+     * Add travail
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Travailler $travail
+     *
+     * @return Visiteur
+     */
+    public function addTravail(\GSB\GestionStatistiqueBundle\Entity\Travailler $travail)
+    {
+        $this->travail[] = $travail;
+
+        return $this;
+    }
+
+    /**
+     * Remove travail
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Travailler $travail
+     */
+    public function removeTravail(\GSB\GestionStatistiqueBundle\Entity\Travailler $travail)
+    {
+        $this->travail->removeElement($travail);
+    }
+
+    /**
+     * Get travail
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTravail()
+    {
+        return $this->travail;
     }
 }
