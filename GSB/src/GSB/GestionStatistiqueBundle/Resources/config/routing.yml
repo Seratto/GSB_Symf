@@ -4,4 +4,8 @@ gsb_gestion_statistique_homepage:
 
 affichagestatistique:
     path:     /statistiques
-    defaults: { _controller: GSBGestionStatistiqueBundle:Default:affichagerStat }
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStat }
+
+affichageVisiteur:
+    path:     /visiteurs
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherVis }
