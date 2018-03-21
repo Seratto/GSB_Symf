@@ -8,7 +8,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('GSBGestionStatistiqueBundle:Default:menu.html.twig');
+        return $this->render('GSBGestionStatistiqueBundle:Default:accueil.html.twig');
     }
 	public function afficherStatAction()
 	{
