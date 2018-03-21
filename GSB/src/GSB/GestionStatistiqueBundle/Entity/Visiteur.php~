@@ -1,0 +1,282 @@
+<?php
+
+namespace GSB\GestionStatistiqueBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Visiteur
+ *
+ * @ORM\Table(name="visiteur")
+ * @ORM\Entity(repositoryClass="GSB\GestionStatistiqueBundle\Repository\VisiteurRepository")
+ */
+class Visiteur
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="matricule_vis", type="integer")
+     */
+    private $matriculeVis;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="code_sec", type="integer")
+     */
+    private $codeSec;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="code_dep", type="integer")
+     */
+    private $codeDep;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_vis", type="string", length=255)
+     */
+    private $nomVis;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse_vis", type="string", length=255)
+     */
+    private $adresseVis;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cp_vis", type="string", length=255)
+     */
+    private $cpVis;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville_vis", type="string", length=255)
+     */
+    private $villeVis;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_embauche", type="datetime")
+     */
+    private $dateEmbauche;
+
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set matriculeVis.
+     *
+     * @param int $matriculeVis
+     *
+     * @return Visiteur
+     */
+    public function setMatriculeVis($matriculeVis)
+    {
+        $this->matriculeVis = $matriculeVis;
+
+        return $this;
+    }
+
+    /**
+     * Get matriculeVis.
+     *
+     * @return int
+     */
+    public function getMatriculeVis()
+    {
+        return $this->matriculeVis;
+    }
+
+    /**
+     * Set codeSec.
+     *
+     * @param int $codeSec
+     *
+     * @return Visiteur
+     */
+    public function setCodeSec($codeSec)
+    {
+        $this->codeSec = $codeSec;
+
+        return $this;
+    }
+
+    /**
+     * Get codeSec.
+     *
+     * @return int
+     */
+    public function getCodeSec()
+    {
+        return $this->codeSec;
+    }
+
+    /**
+     * Set codeDep.
+     *
+     * @param int $codeDep
+     *
+     * @return Visiteur
+     */
+    public function setCodeDep($codeDep)
+    {
+        $this->codeDep = $codeDep;
+
+        return $this;
+    }
+
+    /**
+     * Get codeDep.
+     *
+     * @return int
+     */
+    public function getCodeDep()
+    {
+        return $this->codeDep;
+    }
+
+    /**
+     * Set nomVis.
+     *
+     * @param string $nomVis
+     *
+     * @return Visiteur
+     */
+    public function setNomVis($nomVis)
+    {
+        $this->nomVis = $nomVis;
+
+        return $this;
+    }
+
+    /**
+     * Get nomVis.
+     *
+     * @return string
+     */
+    public function getNomVis()
+    {
+        return $this->nomVis;
+    }
+
+    /**
+     * Set adresseVis.
+     *
+     * @param string $adresseVis
+     *
+     * @return Visiteur
+     */
+    public function setAdresseVis($adresseVis)
+    {
+        $this->adresseVis = $adresseVis;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseVis.
+     *
+     * @return string
+     */
+    public function getAdresseVis()
+    {
+        return $this->adresseVis;
+    }
+
+    /**
+     * Set cpVis.
+     *
+     * @param string $cpVis
+     *
+     * @return Visiteur
+     */
+    public function setCpVis($cpVis)
+    {
+        $this->cpVis = $cpVis;
+
+        return $this;
+    }
+
+    /**
+     * Get cpVis.
+     *
+     * @return string
+     */
+    public function getCpVis()
+    {
+        return $this->cpVis;
+    }
+
+    /**
+     * Set villeVis.
+     *
+     * @param string $villeVis
+     *
+     * @return Visiteur
+     */
+    public function setVilleVis($villeVis)
+    {
+        $this->villeVis = $villeVis;
+
+        return $this;
+    }
+
+    /**
+     * Get villeVis.
+     *
+     * @return string
+     */
+    public function getVilleVis()
+    {
+        return $this->villeVis;
+    }
+
+    /**
+     * Set dateEmbauche.
+     *
+     * @param \DateTime $dateEmbauche
+     *
+     * @return Visiteur
+     */
+    public function setDateEmbauche($dateEmbauche)
+    {
+        $this->dateEmbauche = $dateEmbauche;
+
+        return $this;
+    }
+
+    /**
+     * Get dateEmbauche.
+     *
+     * @return \DateTime
+     */
+    public function getDateEmbauche()
+    {
+        return $this->dateEmbauche;
+    }
+}
