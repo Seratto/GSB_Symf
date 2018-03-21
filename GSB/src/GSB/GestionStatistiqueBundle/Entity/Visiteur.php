@@ -29,18 +29,21 @@ class Visiteur
     private $matriculeVis;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="code_sec", type="integer")
+     * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $codeSec;
+    private $responsableDuSecteur;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="code_dep", type="integer")
+     * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Departement")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $codeDep;
+    private $dependDuDepartement;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Region", cascade={"persit"})
+     */
+    private $regions;
 
     /**
      * @var string
