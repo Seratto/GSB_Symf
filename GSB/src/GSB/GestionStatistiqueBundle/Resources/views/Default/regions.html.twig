@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <?php
+        $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Region');
+    ?>
+{% endblock %}
