@@ -1,4 +1,4 @@
-gsb_gestion_statistique_homepage:
+pageaccueil:
     path:     /
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:index }
 
