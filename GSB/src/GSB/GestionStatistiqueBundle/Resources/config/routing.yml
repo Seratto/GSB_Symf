@@ -9,3 +9,7 @@ affichagestatistique:
 affichageVisiteur:
     path:     /visiteurs
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherVis }
+
+affichageRegion:
+    path:     /region
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStatRegion }
