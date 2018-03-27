@@ -19,6 +19,6 @@ class DefaultController extends Controller
     public function afficherStatRegionAction()
     {
         $lesRegions = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Region');
-        return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array("regions"=>$lesRegions));
+        return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array("regions"=>$lesRegions, "test"=>0));
     }
 }

@@ -13,44 +13,13 @@
             </tr>
         </thead>
         <tbody>
-            {% for surfeur in liste %}
+            {% for uneRegion in lesRegions %}
                 <tr>
-                    <td> {{ surfeur.id ~ " " surfeur.age ~ " a "}} </td>
+                    <td> {{ uneRegion.Nom }} </td>
+                    <td> {{ uneRegion.Nom }} </td>
+                    <td> {{ uneRegion.Nom }} </td>
                 </tr>
             {% endfor %}
-
-
-
-          <tr>
-            <td>77</td>
-            <td>Idris</td>
-            <td>16 rue Salazar, Antonio de Oliveira</td>
-            <td>Tagsdorf</td>
-            <td>78990</td>
-            <td>Yvelines</td>
-            <td>24/05/1996</td>
-            <td>Paris-centre</td>
-          </tr>
-          <tr>
-            <td>81</td>
-            <td>Ignacio</td>
-            <td>4437 rue Argoult</td>
-            <td>Bac</td>
-            <td>82820</td>
-            <td>Tarn-et-Garonne</td>
-            <td>28/09/2000</td>
-            <td>Ouest</td>
-          </tr>
-          <tr>
-            <td>95</td>
-            <td>Naéva</td>
-            <td>463 avenue Dylan, Bob</td>
-            <td>Saint-François</td>
-            <td>97150</td>
-            <td>Guadeloupe</td>
-            <td>11/02/2007</td>
-            <td>DTOM caraïbles-amériques</td>
-          </tr>
         </tbody>
     </table>
 </div>
