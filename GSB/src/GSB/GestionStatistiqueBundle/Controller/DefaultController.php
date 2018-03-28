@@ -3,6 +3,7 @@
 namespace GSB\GestionStatistiqueBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\GSBGestionStatistique\Travailler;
 
 class DefaultController extends Controller
 {
@@ -19,6 +20,12 @@ class DefaultController extends Controller
     public function afficherStatRegionAction()
     {
         $lesRegions = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Region');
-        return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array("regions"=>$lesRegions, "test"=>0));
+        $inc = 0;
+        foreach ($lesRegions as $reg)
+        {
+            $nbsVisiteurs[$inc] = Travailler::getVisiteursRegion($reg->getCodeReg());
+            $inc ++;
+        }
+        return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs));
     }
 }

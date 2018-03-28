@@ -155,4 +155,16 @@ class Travailler
     {
         return $this->roleTrav;
     }
+
+    public static function getVisiteursRegion($idRegion)
+    {
+        $em = $this->getDoctrine()->getManager(); //on appelle Doctrine
+        $query = $em->createQuery( //creation de la requête
+            'SELECT COUNT(t.matricule_visiteur)
+            FROM GSBGestionStatistiqueBundle:Travailler t
+            WHERE t.code_region = :laRegion'
+        )->setParameter('laRegion', $idRegion);
+        $nbVisiteur = $query->getResult(); //variable qui récupère la requête
+        return $nbVisiteur;
+    }
 }

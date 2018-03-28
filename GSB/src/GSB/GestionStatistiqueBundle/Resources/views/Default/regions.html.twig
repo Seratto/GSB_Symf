@@ -13,10 +13,11 @@
             </tr>
         </thead>
         <tbody>
+            {% set inc = 0 %}
             {% for uneRegion in lesRegions %}
                 <tr>
                     <td> {{ uneRegion.Nom }} </td>
-                    <td> {{ uneRegion.Nom }} </td>
+                    <td> {{ lesNombresDeVisiteurs[inc] }} </td>
                     <td> {{ uneRegion.Nom }} </td>
                 </tr>
             {% endfor %}
