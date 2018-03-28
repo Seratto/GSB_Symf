@@ -21,6 +21,7 @@ class DefaultController extends Controller
     {
         $lesRegions = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Region');
         $inc = 0;
+        $nbsVisiteurs = array();
         foreach ($lesRegions as $reg)
         {
             $nbsVisiteurs[$inc] = Travailler::getVisiteursRegion($reg->getCodeReg());
