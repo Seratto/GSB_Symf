@@ -167,4 +167,17 @@ class Travailler
         $nbVisiteur = $query->getResult(); //variable qui récupère la requête
         return $nbVisiteur;
     }
+
+    public static function getDeleguesRegion($idRegion)
+    {
+        $em = $this->getDoctrine()->getManager(); //on appelle Doctrine
+        $query = $em->createQuery( //creation de la requête
+            'SELECT COUNT(t.matricule_visiteur)
+            FROM GSBGestionStatistiqueBundle:Travailler t
+            WHERE t.code_region = :laRegion
+            AND t.role_travailler = "délégué"'
+        )->setParameter('laRegion', $idRegion);
+        $nbVisiteur = $query->getResult(); //variable qui récupère la requête
+        return $nbVisiteur;
+    }
 }

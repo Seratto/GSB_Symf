@@ -22,11 +22,13 @@ class DefaultController extends Controller
         $lesRegions = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Region');
         $inc = 0;
         $nbsVisiteurs = array();
+        $nbsDelegues = array();
         foreach ($lesRegions as $reg)
         {
             $nbsVisiteurs[$inc] = Travailler::getVisiteursRegion($reg->getCodeReg());
+            $nbsDelegues[inc] = Travailler::getDeleguesRegion($reg->getCodeReg());
             $inc ++;
         }
-        return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs));
+        return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs, 'lesNombresDeDelegues'=>$nbsDelegues));
     }
 }
