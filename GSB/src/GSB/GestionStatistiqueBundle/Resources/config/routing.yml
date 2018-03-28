@@ -13,3 +13,7 @@ affichageDel:
 affichageRegion:
     path:     /region
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStatRegion }
+
+affichageSecteur:
+    path:   /secteur
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStatSecteur }

@@ -31,4 +31,9 @@ class DefaultController extends Controller
         }
         return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs, 'lesNombresDeDelegues'=>$nbsDelegues));
     }
+
+    public function afficherStatSecteurAction()
+    {
+        return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig');
+    }
 }
