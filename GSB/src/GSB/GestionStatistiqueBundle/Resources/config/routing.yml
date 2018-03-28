@@ -7,8 +7,8 @@ affichagestatistique:
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStat }
 
 affichageDel:
-    path:     /visiteurs
-    defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherVis }
+    path:     /delegue
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherDel }
 
 affichageRegion:
     path:     /region
