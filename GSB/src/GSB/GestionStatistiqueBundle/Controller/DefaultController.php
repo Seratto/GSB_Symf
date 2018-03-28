@@ -26,7 +26,7 @@ class DefaultController extends Controller
         foreach ($lesRegions as $reg)
         {
             $nbsVisiteurs[$inc] = Travailler::getVisiteursRegion($reg->getCodeReg());
-            $nbsDelegues[inc] = Travailler::getDeleguesRegion($reg->getCodeReg());
+            $nbsDelegues[$inc] = Travailler::getDeleguesRegion($reg->getCodeReg());
             $inc ++;
         }
         return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs, 'lesNombresDeDelegues'=>$nbsDelegues));
