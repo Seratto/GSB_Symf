@@ -15,18 +15,11 @@ class Region
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="code_region", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="code_reg", type="integer")
-     */
-    private $codeReg;
 
     /**
      * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
@@ -40,7 +33,7 @@ class Region
      * @ORM\Column(name="nom_reg", type="string", length=255)
      */
     private $nomReg;
-    
+
     /**
      * @ORM\ManyToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Travailler")
      */
@@ -168,5 +161,39 @@ class Region
     public function getVisiteurs()
     {
         return $this->visiteurs;
+    }
+
+    /**
+     * Add travail
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Travailler $travail
+     *
+     * @return Region
+     */
+    public function addTravail(\GSB\GestionStatistiqueBundle\Entity\Travailler $travail)
+    {
+        $this->travail[] = $travail;
+
+        return $this;
+    }
+
+    /**
+     * Remove travail
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Travailler $travail
+     */
+    public function removeTravail(\GSB\GestionStatistiqueBundle\Entity\Travailler $travail)
+    {
+        $this->travail->removeElement($travail);
+    }
+
+    /**
+     * Get travail
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTravail()
+    {
+        return $this->travail;
     }
 }

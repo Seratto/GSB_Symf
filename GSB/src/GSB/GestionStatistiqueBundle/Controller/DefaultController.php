@@ -14,7 +14,15 @@ class DefaultController extends Controller
 
 	public function afficherDelAction()
 	{
-		return $this->render('GSBGestionStatistiqueBundle:Default:delegue.html.twig');
+
+		$repository = $this
+  			->getDoctrine()
+  			->getManager()
+  			->getRepository('GSBGestionStatistiqueBundle:Visiteur');
+
+		$listVisiteur = $repository->findAll();
+
+		return $this->render('GSBGestionStatistiqueBundle:Default:delegue.html.twig',array('liste',$listVisiteur));
 	}
 
     public function afficherStatRegionAction()

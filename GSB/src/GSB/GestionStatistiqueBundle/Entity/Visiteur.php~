@@ -15,19 +15,11 @@ class Visiteur
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="matricule_visiteur", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="matricule_vis", type="integer")
-     */
-    private $matriculeVis;
-
     /**
      * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
      * @ORM\JoinColumn(nullable=true)
@@ -370,5 +362,39 @@ class Visiteur
     public function getRegions()
     {
         return $this->regions;
+    }
+
+    /**
+     * Add travail
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Travailler $travail
+     *
+     * @return Visiteur
+     */
+    public function addTravail(\GSB\GestionStatistiqueBundle\Entity\Travailler $travail)
+    {
+        $this->travail[] = $travail;
+
+        return $this;
+    }
+
+    /**
+     * Remove travail
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Travailler $travail
+     */
+    public function removeTravail(\GSB\GestionStatistiqueBundle\Entity\Travailler $travail)
+    {
+        $this->travail->removeElement($travail);
+    }
+
+    /**
+     * Get travail
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTravail()
+    {
+        return $this->travail;
     }
 }
