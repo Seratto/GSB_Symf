@@ -6,7 +6,7 @@ affichagestatistique:
     path:     /statistiques
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStat }
 
-affichageVisiteur:
+affichageDel:
     path:     /visiteurs
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherVis }
 

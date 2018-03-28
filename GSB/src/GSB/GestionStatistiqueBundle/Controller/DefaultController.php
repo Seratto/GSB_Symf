@@ -12,9 +12,9 @@ class DefaultController extends Controller
         return $this->render('GSBGestionStatistiqueBundle:Default:accueil.html.twig');
     }
 
-	public function afficherVisAction()
+	public function afficherDelAction()
 	{
-		return $this->render('GSBGestionStatistiqueBundle:Default:visiteur.html.twig');
+		return $this->render('GSBGestionStatistiqueBundle:Default:delegue.html.twig');
 	}
 
     public function afficherStatRegionAction()
