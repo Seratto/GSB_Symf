@@ -49,8 +49,8 @@ class DefaultController extends Controller
 
     public function afficherVisiteursRegion($idRegion)
     {
-        $lesSecteurs = Travailler::getVisiteursRegion($idRegion);
-        return $this->render('GSBGestionStatistiqueBundle:Default:region.html.twig', array('lesVisiteurs'=>$lesSecteurs));
+        $lesVisiteurs = Travailler::getVisiteursRegion($idRegion);
+        return $this->render('GSBGestionStatistiqueBundle:Default:region.html.twig', array('lesVisiteurs'=>$lesVisiteurs));
     }
     public function pageConnexionAction()
     {
