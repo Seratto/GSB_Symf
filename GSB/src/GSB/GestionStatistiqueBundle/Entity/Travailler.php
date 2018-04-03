@@ -156,7 +156,7 @@ class Travailler
         return $this->roleTrav;
     }
 
-    public static function getVisiteursRegion($idRegion)
+    public static function getNbVisiteursRegion($idRegion)
     {
         $em = $this->getDoctrine()->getManager(); //on appelle Doctrine
         $query = $em->createQuery( //creation de la requête
@@ -168,7 +168,7 @@ class Travailler
         return $nbVisiteur;
     }
 
-    public static function getDeleguesRegion($idRegion)
+    public static function getNbDeleguesRegion($idRegion)
     {
         $em = $this->getDoctrine()->getManager(); //on appelle Doctrine
         $query = $em->createQuery( //creation de la requête
@@ -179,5 +179,15 @@ class Travailler
         )->setParameter('laRegion', $idRegion);
         $nbVisiteur = $query->getResult(); //variable qui récupère la requête
         return $nbVisiteur;
+    }
+
+    public static function getVisiteursRegion($idRegion)
+    {
+        return $this->createQueryBuilder('Visiteur')
+                    ->join('Visiteur.matriculeVisiteur', 'Travailler')
+                    ->where("Travailler.codeRegion = ?1")
+                    ->setParameter(1, $idRegion)
+                    ->getQuery()
+                    ->getResult();
     }
 }

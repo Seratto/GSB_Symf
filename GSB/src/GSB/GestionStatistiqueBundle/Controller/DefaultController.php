@@ -33,8 +33,8 @@ class DefaultController extends Controller
         $nbsDelegues = array();
         foreach ($lesRegions as $reg)
         {
-            $nbsVisiteurs[$inc] = Travailler::getVisiteursRegion($reg->getCodeReg());
-            $nbsDelegues[$inc] = Travailler::getDeleguesRegion($reg->getCodeReg());
+            $nbsVisiteurs[$inc] = Travailler::getNbVisiteursRegion($reg->getCodeReg());
+            $nbsDelegues[$inc] = Travailler::getNbDeleguesRegion($reg->getCodeReg());
             $inc ++;
         }
         return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs, 'lesNombresDeDelegues'=>$nbsDelegues));
@@ -45,5 +45,11 @@ class DefaultController extends Controller
         $lesSecteurs = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
         $nbsVisiteurs = array();
         return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('lesSecteurs'=>$lesSecteurs));
+    }
+
+    public function afficherVisiteursRegion($idRegion)
+    {
+        $lesSecteurs = Travailler::getVisiteursRegion($idRegion);
+        return $this->render('GSBGestionStatistiqueBundle:Default:region.html.twig', array('lesVisiteurs'=>$lesSecteurs));
     }
 }
