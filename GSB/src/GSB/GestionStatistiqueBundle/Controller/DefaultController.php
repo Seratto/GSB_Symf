@@ -3,7 +3,7 @@
 namespace GSB\GestionStatistiqueBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Bundle\GSBGestionStatistique\Travailler;
+use Symfony\Bundle\GSBGestionStatistiqueBundle\Travailler;
 
 class DefaultController extends Controller
 {
