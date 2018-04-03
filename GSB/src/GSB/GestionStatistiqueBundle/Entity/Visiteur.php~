@@ -21,21 +21,18 @@ class Visiteur
      */
     private $id;
     /**
+	 * @ORM\Column(name="code_sec", type="integer")
      * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $responsableDuSecteur;
+    private $codeSecteur;
 
     /**
-     * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Departement")
+     * @ORM\Column(name="code_dep", type="integer")
+	 * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Departement")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $dependDuDepartement;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Travailler")
-     */
-    private $travail;
+    private $codeDep;
 
     /**
      * @var string
@@ -396,5 +393,29 @@ class Visiteur
     public function getTravail()
     {
         return $this->travail;
+    }
+
+    /**
+     * Set codeSecteur.
+     *
+     * @param int $codeSecteur
+     *
+     * @return Visiteur
+     */
+    public function setCodeSecteur($codeSecteur)
+    {
+        $this->codeSecteur = $codeSecteur;
+
+        return $this;
+    }
+
+    /**
+     * Get codeSecteur.
+     *
+     * @return int
+     */
+    public function getCodeSecteur()
+    {
+        return $this->codeSecteur;
     }
 }

@@ -22,9 +22,9 @@ class Travailler
     private $id;
 
     /**
-     * @var int
-     *
      * @ORM\Column(name="code_reg", type="integer")
+	 * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Region")
+	 * @ORM\JoinColumn(nullable=false)
      */
     private $codeReg;
 

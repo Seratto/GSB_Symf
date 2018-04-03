@@ -22,6 +22,7 @@ class Region
     private $id;
 
     /**
+	 * @ORM\Column(name="code_sec_id", type="integer")
      * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -33,12 +34,6 @@ class Region
      * @ORM\Column(name="nom_reg", type="string", length=255)
      */
     private $nomReg;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Travailler")
-     */
-    private $travail;
-
 
     /**
      * Get id.
