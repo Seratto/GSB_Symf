@@ -42,12 +42,13 @@ class DefaultController extends Controller
 
     public function afficherStatSecteurAction()
     {
-        $lesSecteurs = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
+        $rep = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
+		$lesSecteurs = $rep->findAll();
         $nbsVisiteurs = array();
         return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('lesSecteurs'=>$lesSecteurs));
     }
 
-    public function afficherVisiteursRegion($idRegion)
+    public function afficherVisiteursRegionAction($idRegion)
     {
         $lesVisiteurs = Travailler::getVisiteursRegion($idRegion);
         return $this->render('GSBGestionStatistiqueBundle:Default:region.html.twig', array('lesVisiteurs'=>$lesVisiteurs));
