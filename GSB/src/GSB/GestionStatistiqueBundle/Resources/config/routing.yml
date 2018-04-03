@@ -19,7 +19,7 @@ affichageSecteur:
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStatSecteur }
 
 affichageVisiteursRegion:
-    path:     /region
+    path:     /region/{idReg}
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherVisiteursRegion }
 
 pageConnexion:
