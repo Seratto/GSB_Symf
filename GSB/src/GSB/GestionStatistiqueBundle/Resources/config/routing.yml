@@ -21,3 +21,7 @@ affichageSecteur:
 affichageVisiteursRegion:
     path:     /region
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherVisiteursRegion }
+
+pageConnexion:
+    path:   /connexion
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:pageConnexion }
