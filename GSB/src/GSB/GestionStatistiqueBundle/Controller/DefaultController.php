@@ -56,4 +56,8 @@ class DefaultController extends Controller
     {
         return $this->render('GSBGestionStatistiqueBundle:Default:connexion.html.twig');
     }
+    public function pageCreationAction()
+    {
+        return $this->render('GSBGestionStatistiqueBundle:Default:creation.html.twig');
+    }
 }

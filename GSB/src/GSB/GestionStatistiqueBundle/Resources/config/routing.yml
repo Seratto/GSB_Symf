@@ -25,3 +25,7 @@ affichageVisiteursRegion:
 pageConnexion:
     path:   /connexion
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:pageConnexion }
+
+pageCreation:
+    path:   /creation
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:pageCreation }
