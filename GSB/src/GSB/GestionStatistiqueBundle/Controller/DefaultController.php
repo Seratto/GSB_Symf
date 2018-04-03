@@ -27,7 +27,7 @@ class DefaultController extends Controller
 
     public function afficherStatRegionAction()
     {
-        $lesRegions = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Region');
+        $lesRegions = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Region')->findAll();
         $inc = 0;
         $nbsVisiteurs = array();
         $nbsDelegues = array();
@@ -53,6 +53,7 @@ class DefaultController extends Controller
         $lesVisiteurs = Travailler::getVisiteursRegion($idRegion);
         return $this->render('GSBGestionStatistiqueBundle:Default:region.html.twig', array('lesVisiteurs'=>$lesVisiteurs));
     }
+
     public function pageConnexionAction()
     {
         return $this->render('GSBGestionStatistiqueBundle:Default:connexion.html.twig');
