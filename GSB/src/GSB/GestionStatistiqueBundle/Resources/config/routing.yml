@@ -17,3 +17,7 @@ affichageRegion:
 affichageSecteur:
     path:   /secteur
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStatSecteur }
+
+pageConnexion:
+    path:   /connexion
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:pageConnexion }

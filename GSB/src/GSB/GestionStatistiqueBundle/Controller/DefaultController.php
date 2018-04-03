@@ -46,4 +46,9 @@ class DefaultController extends Controller
         $nbsVisiteurs = array();
         return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('lesSecteurs'=>$lesSecteurs));
     }
+
+    public function pageConnexionAction()
+    {
+        return $this->render('GSBGestionStatistiqueBundle:Default:connexion.html.twig');
+    }
 }
