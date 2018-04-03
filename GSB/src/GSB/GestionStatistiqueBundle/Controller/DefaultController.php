@@ -42,8 +42,10 @@ class DefaultController extends Controller
 
     public function afficherStatSecteurAction()
     {
-        $lesSecteurs = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
+        $rep = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
+		$lesSecteurs = $rep->findAll();
         $nbsVisiteurs = array();
+		echo "<pre>".var_dump($lesSecteurs)."</pre>";
         return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('lesSecteurs'=>$lesSecteurs));
     }
 
