@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <h2>Visiteur de la région</h2>
+	<p>Détail de chaque visiteur de la région</p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Date d'embauche</th>
+                <th>Département</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for unVisiteur in lesVisiteurs %}
+                <tr>
+                    <td> {{ unVisiteur.NomVis }} </td>
+                    <td> {{ unVisiteur.AdresseVis }} </td>
+                    <td> {{ unVisiteur.CpVis }} </td>
+                    <td> {{ unVisiteur.VilleVis }} </td>
+                    <td> {{ unVisiteur.DateEmbauche }} </td>
+                    <td> {{ unVisiteur.DependDuDepartement.NomDep }} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -12,18 +12,13 @@
       </tr>
     </thead>
     <tbody>
+        {% set inc = 0 %}
+        {% for unSecteur in lesSecteurs %}
       <tr>
-        <td>DTOM Asie - Afrique</td>
+        <td>{{ unSecteur.libelleSec }}</td>
         <td>12</td>
       </tr>
-      <tr>
-        <td>DTOM Caraïbes - Amériques</td>
-        <td>15</td>
-      </tr>
-      <tr>
-        <td>Est</td>
-        <td>6</td>
-      </tr>
+        {% endfor %}
     </tbody>
   </table>
 </div>

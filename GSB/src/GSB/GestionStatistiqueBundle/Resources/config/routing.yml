@@ -10,10 +10,18 @@ affichageDel:
     path:     /delegue
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherDel }
 
-affichageRegion:
-    path:     /region
+affichageRegions:
+    path:     /regions
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStatRegion }
 
 affichageSecteur:
     path:   /secteur
     defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherStatSecteur }
+
+affichageVisiteursRegion:
+    path:     /region
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:afficherVisiteursRegion }
+
+pageConnexion:
+    path:   /connexion
+    defaults: { _controller: GSBGestionStatistiqueBundle:Default:pageConnexion }
