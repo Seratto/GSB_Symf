@@ -21,9 +21,10 @@
                     <td> {{ lesNombresDeVisiteurs[inc] }} </td>
                     <td> {{ lesNombresDeDelegues[inc] }} </td>
                     <td>
-                        <a href="{{ path('affichageVisiteursRegion', { 'idReg': uneRegion.Id }) }}" class="btn btn-primary btn-md">Afficher la liste des visiteur de cette région <i class="fa fa-sign-in"></i></a>
+                        <a href="{{ path('affichageVisiteursRegion', { 'idReg': uneRegion.Id }) }}" class="btn btn-primary btn-md">Afficher la liste des visiteurs de cette région <i class="fa fa-sign-in"></i></a>
                     </td>
                 </tr>
+                {% set inc = inc + 1 %}
             {% endfor %}
         </tbody>
     </table>
