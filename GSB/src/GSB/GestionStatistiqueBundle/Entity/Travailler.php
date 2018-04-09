@@ -3,6 +3,7 @@
 namespace GSB\GestionStatistiqueBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * Travailler
@@ -157,7 +158,7 @@ class Travailler
     }
 
     public static function getNbVisiteursRegion($idRegion)
-    {
+    {/*
         $em = $this->getDoctrine()->getManager(); //on appelle Doctrine
         $query = $em->createQuery( //creation de la requête
             'SELECT COUNT(t.matricule_visiteur)
@@ -165,7 +166,22 @@ class Travailler
             WHERE t.code_region = :laRegion'
         )->setParameter('laRegion', $idRegion);
         $nbVisiteur = $query->getResult(); //variable qui récupère la requête
-        return $nbVisiteur;
+        return $nbVisiteur;*/
+
+
+       /* return $this->createQueryBuilder('cont(Travailler.matriculeVis)')
+                    ->where("Travailler.codeRegion = ?1")
+                    ->setParameter(1, $idRegion)
+                    ->getQuery()
+                    ->getResult()
+                    ->getSingleScalarResult();*/
+
+
+        $paginator = new \Doctrine\ORM\Tools\Pagination\Paginator($this->createQueryBuilder('Travailler.matriculeVis')
+                    ->where("Travailler.codeReg = ?1")
+                    ->setParameter(1, $idRegion)
+                    ->getQuery());
+        return count($paginator);
     }
 
     public static function getNbDeleguesRegion($idRegion)

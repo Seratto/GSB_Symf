@@ -34,12 +34,12 @@ class DefaultController extends Controller
         $nbsDelegues = array();
         foreach ($lesRegions as $reg)
         {
-            var_dump($reg->getId());
-            $nbsVisiteurs[$inc] = Travailler::getNbVisiteursRegion($reg->getId());
-            $nbsDelegues[$inc] = Travailler::getNbDeleguesRegion($reg->getId());
+            $repository = $this->getDoctrine()->getRepository('GSBGestionStatistiqueBundle:Travailler');
+            $nbsVisiteurs[$inc] = $repository->getNombreVisiteursDeLaRegion($reg->getId());
+            $nbsDelegues[$inc] = $repository->getNombreDeleguesDeLaRegion($reg->getId());
             $inc ++;
         }
-        $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs, 'lesNombresDeDelegues'=>$nbsDelegues));
+        return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs, 'lesNombresDeDelegues'=>$nbsDelegues));
     }
 
     public function afficherStatSecteurAction()

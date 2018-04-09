@@ -10,4 +10,28 @@ namespace GSB\GestionStatistiqueBundle\Repository;
  */
 class TravaillerRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getNombreVisiteursDeLaRegion($idRegion)
+    {
+        $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Travailler');
+        $qb = $repository->createQueryBuilder('Travailler');
+        return $qb
+            ->select('Travailler.matriculeVis')
+            ->where("Travailler.codeReg = ?1")
+            ->setParameter(1, $idRegion)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function getNombreDeleguesDeLaRegion($idRegion)
+    {
+        $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Travailler');
+        $qb = $repository->createQueryBuilder('Travailler');
+        return $qb
+            ->select('Travailler.matriculeVis')
+            ->where("Travailler.codeReg = ?1")
+            ->andWhere("Travailler.roleTrav = 'délégué'")
+            ->setParameter(1, $idRegion)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }
