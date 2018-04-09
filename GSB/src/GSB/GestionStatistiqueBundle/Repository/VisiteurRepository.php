@@ -10,4 +10,21 @@ namespace GSB\GestionStatistiqueBundle\Repository;
  */
 class VisiteurRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getDepartement()
+	{
+
+        $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Visiteur');
+        $qb = $repository->createQueryBuilder('Visiteur');
+        return $qb	->select('v.id','v.adresseVis','v.nomVis','v.cpVis','v.villeVis','d.nomDep','s.libelleSec')
+			        ->from('GSBGestionStatistiqueBundle:Visiteur','v')
+			        ->from('GSBGestionStatistiqueBundle:Departement','d')
+			        ->from('GSBGestionStatistiqueBundle:Secteur','s')
+			        ->from('GSBGestionStatistiqueBundle:Travailler','t')
+					->where('v.codeDep = d.id')
+					->andWhere('v.codeSecteur = s.id')
+					->andWhere('v.id = t.matriculeVis')
+					->andWhere("t.roleTrav = 'Délégué'")
+                    ->getQuery()
+                    ->getResult();
+	}
 }
