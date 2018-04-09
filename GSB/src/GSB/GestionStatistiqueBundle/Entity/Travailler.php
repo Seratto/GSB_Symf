@@ -157,46 +157,6 @@ class Travailler
         return $this->roleTrav;
     }
 
-    public static function getNbVisiteursRegion($idRegion)
-    {/*
-        $em = $this->getDoctrine()->getManager(); //on appelle Doctrine
-        $query = $em->createQuery( //creation de la requête
-            'SELECT COUNT(t.matricule_visiteur)
-            FROM GSBGestionStatistiqueBundle:Travailler t
-            WHERE t.code_region = :laRegion'
-        )->setParameter('laRegion', $idRegion);
-        $nbVisiteur = $query->getResult(); //variable qui récupère la requête
-        return $nbVisiteur;*/
-
-
-       /* return $this->createQueryBuilder('cont(Travailler.matriculeVis)')
-                    ->where("Travailler.codeRegion = ?1")
-                    ->setParameter(1, $idRegion)
-                    ->getQuery()
-                    ->getResult()
-                    ->getSingleScalarResult();*/
-
-
-        $paginator = new \Doctrine\ORM\Tools\Pagination\Paginator($this->createQueryBuilder('Travailler.matriculeVis')
-                    ->where("Travailler.codeReg = ?1")
-                    ->setParameter(1, $idRegion)
-                    ->getQuery());
-        return count($paginator);
-    }
-
-    public static function getNbDeleguesRegion($idRegion)
-    {
-        $em = $this->getDoctrine()->getManager(); //on appelle Doctrine
-        $query = $em->createQuery( //creation de la requête
-            'SELECT COUNT(t.matricule_visiteur)
-            FROM GSBGestionStatistiqueBundle:Travailler t
-            WHERE t.code_region = :laRegion
-            AND t.role_travailler = "délégué"'
-        )->setParameter('laRegion', $idRegion);
-        $nbVisiteur = $query->getResult(); //variable qui récupère la requête
-        return $nbVisiteur;
-    }
-
     public static function getVisiteursRegion($idRegion)
     {
         return $this->createQueryBuilder('Visiteur')
