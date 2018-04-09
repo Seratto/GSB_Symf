@@ -53,7 +53,7 @@ class DefaultController extends Controller
     public function afficherVisiteursRegionAction($idRegion)
     {
         $repository = $this->getDoctrine()->getRepository('GSBGestionStatistiqueBundle:Travailler');
-        $lesVisiteurs = $repository->getNombreVisiteursDeLaRegion($reg->getId());
+        $lesVisiteurs = $repository->getVisiteursDeLaRegion($reg->getId());
         return $this->render('GSBGestionStatistiqueBundle:Default:region.html.twig', array('lesVisiteurs'=>$lesVisiteurs));
     }
 
