@@ -34,4 +34,14 @@ class TravaillerRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
+
+    public static function getVisiteursDeLaRegion($idRegion)
+    {
+        return $this->createQueryBuilder('Visiteur')
+                    ->join('Visiteur.matriculeVisiteur', 'Travailler')
+                    ->where("Travailler.codeRegion = ?1")
+                    ->setParameter(1, $idRegion)
+                    ->getQuery()
+                    ->getResult();
+    }
 }

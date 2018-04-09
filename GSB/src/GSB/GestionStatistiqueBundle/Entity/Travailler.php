@@ -157,13 +157,5 @@ class Travailler
         return $this->roleTrav;
     }
 
-    public static function getVisiteursRegion($idRegion)
-    {
-        return $this->createQueryBuilder('Visiteur')
-                    ->join('Visiteur.matriculeVisiteur', 'Travailler')
-                    ->where("Travailler.codeRegion = ?1")
-                    ->setParameter(1, $idRegion)
-                    ->getQuery()
-                    ->getResult();
-    }
+
 }
