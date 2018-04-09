@@ -4,6 +4,7 @@ namespace GSB\GestionStatistiqueBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\GSBGestionStatistiqueBundle\Travailler;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -33,11 +34,12 @@ class DefaultController extends Controller
         $nbsDelegues = array();
         foreach ($lesRegions as $reg)
         {
-            $nbsVisiteurs[$inc] = Travailler::getNbVisiteursRegion($reg->getCodeReg());
-            $nbsDelegues[$inc] = Travailler::getNbDeleguesRegion($reg->getCodeReg());
+            var_dump($reg->getId());
+            $nbsVisiteurs[$inc] = Travailler::getNbVisiteursRegion($reg->getId());
+            $nbsDelegues[$inc] = Travailler::getNbDeleguesRegion($reg->getId());
             $inc ++;
         }
-        return $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs, 'lesNombresDeDelegues'=>$nbsDelegues));
+        $this->render('GSBGestionStatistiqueBundle:Default:regions.html.twig', array('lesRegions'=>$lesRegions, 'lesNombresDeVisiteurs'=>$nbsVisiteurs, 'lesNombresDeDelegues'=>$nbsDelegues));
     }
 
     public function afficherStatSecteurAction()
