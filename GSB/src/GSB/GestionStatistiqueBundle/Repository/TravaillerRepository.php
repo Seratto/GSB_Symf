@@ -15,7 +15,7 @@ class TravaillerRepository extends \Doctrine\ORM\EntityRepository
         $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Travailler');
         $qb = $repository->createQueryBuilder('Travailler');
         return $qb
-            ->select('Travailler.matriculeVis')
+            ->select('count(Travailler.matriculeVis)')
             ->where("Travailler.codeReg = ?1")
             ->setParameter(1, $idRegion)
             ->getQuery()
@@ -27,7 +27,7 @@ class TravaillerRepository extends \Doctrine\ORM\EntityRepository
         $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Travailler');
         $qb = $repository->createQueryBuilder('Travailler');
         return $qb
-            ->select('Travailler.matriculeVis')
+            ->select('count(Travailler.matriculeVis)')
             ->where("Travailler.codeReg = ?1")
             ->andWhere("Travailler.roleTrav = 'délégué'")
             ->setParameter(1, $idRegion)
