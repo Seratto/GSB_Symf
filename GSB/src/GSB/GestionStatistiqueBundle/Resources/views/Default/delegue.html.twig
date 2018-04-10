@@ -15,6 +15,7 @@ confondues</p>
 		<th>Code Postal</th>
 		<th>Département</th>
 		<th>Secteur</th>
+		<th>Date d'embauche</th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@ confondues</p>
         <td>{{ unVisiteur.cpVis }}</td>
         <td>{{ unVisiteur.nomDep }}</td>
         <td>{{ unVisiteur.libelleSec }}</td>
+	    <td>{{ unVisiteur.dateEmbauche|date('Y-m-d') }}</td>
       </tr>
         {% endfor %}
     </tbody>
