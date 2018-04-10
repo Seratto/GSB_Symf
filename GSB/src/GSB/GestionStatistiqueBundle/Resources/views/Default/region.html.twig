@@ -12,18 +12,16 @@
                 <th>Code postal</th>
                 <th>Ville</th>
                 <th>Date d'embauche</th>
-                <th>Département</th>
             </tr>
         </thead>
         <tbody>
             {% for unVisiteur in lesVisiteurs %}
                 <tr>
-                    <td> {{ unVisiteur.NomVis }} </td>
-                    <td> {{ unVisiteur.AdresseVis }} </td>
-                    <td> {{ unVisiteur.CpVis }} </td>
-                    <td> {{ unVisiteur.VilleVis }} </td>
-                    <td> {{ unVisiteur.DateEmbauche }} </td>
-                    <td> {{ unVisiteur.DependDuDepartement.NomDep }} </td>
+                    <td> {{ unVisiteur.nomVis }} </td>
+                    <td> {{ unVisiteur.adresseVis }} </td>
+                    <td> {{ unVisiteur.cpVis }} </td>
+                    <td> {{ unVisiteur.villeVis }} </td>
+                    <td> {{ unVisiteur.dateEmbauche|date('Y-m-d') }} </td>
                 </tr>
             {% endfor %}
         </tbody>

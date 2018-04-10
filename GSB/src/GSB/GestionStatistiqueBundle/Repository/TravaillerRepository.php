@@ -37,13 +37,25 @@ class TravaillerRepository extends \Doctrine\ORM\EntityRepository
 
     public function getVisiteursDeLaRegion($idRegion)
     {
-        $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Visiteur');
+        /*$repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Visiteur');
         $qb = $repository->createQueryBuilder('Visiteur');
         return $qb
                     ->join('Visiteur.id', 'Travailler')
                     //->where("Travailler.codeReg = ?1")
                     //->setParameter(1, $idRegion)
                     ->getQuery()
+                    ->getResult();*/
+
+        $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Visiteur');
+        $qb = $repository->createQueryBuilder('Visiteur');
+        return $qb	->select('v')
+			        ->from('GSBGestionStatistiqueBundle:Visiteur','v')
+			        ->from('GSBGestionStatistiqueBundle:Travailler','t')
+					->where('v.id = t.matriculeVis')
+					->andWhere("t.codeReg = ?1")
+                    ->setParameter(1, $idRegion)
+                    ->getQuery()
                     ->getResult();
+
     }
 }

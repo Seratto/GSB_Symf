@@ -23,9 +23,8 @@ class Travailler
     private $id;
 
     /**
-     * @ORM\Column(name="code_reg", type="integer")
 	 * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Region")
-	 * @ORM\JoinColumn(nullable=false)
+	 * @ORM\JoinColumn(nullable=false, name="code_reg", referencedColumnName="id")
      */
     private $codeReg;
 
@@ -38,6 +37,7 @@ class Travailler
 
     /**
      * @var int
+     *
      * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Visiteur")
      * @ORM\JoinColumn(nullable=false, name="matricule_vis", referencedColumnName="id")
      */
