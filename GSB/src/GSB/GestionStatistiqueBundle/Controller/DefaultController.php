@@ -20,10 +20,11 @@ class DefaultController extends Controller
   			->getDoctrine()
   			->getManager()
   			->getRepository('GSBGestionStatistiqueBundle:Visiteur');
+		$listVisiteur = $repository->getDepartement();
 
-		$listVisiteur = $repository->findAll();
+		var_dump($listVisiteur);
 
-		return $this->render('GSBGestionStatistiqueBundle:Default:delegue.html.twig',array('liste',$listVisiteur));
+		return $this->render('GSBGestionStatistiqueBundle:Default:delegue.html.twig',array('liste'=>$listVisiteur));
 	}
 
     public function afficherStatRegionAction()
