@@ -50,10 +50,10 @@ class DefaultController extends Controller
         return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('lesSecteurs'=>$lesSecteurs));
     }
 
-    public function afficherVisiteursRegionAction($idRegion)
+    public function afficherVisiteursRegionAction($idReg)
     {
         $repository = $this->getDoctrine()->getRepository('GSBGestionStatistiqueBundle:Travailler');
-        $lesVisiteurs = $repository->getVisiteursDeLaRegion($reg->getId());
+        $lesVisiteurs = $repository->getVisiteursDeLaRegion($idReg);
         return $this->render('GSBGestionStatistiqueBundle:Default:region.html.twig', array('lesVisiteurs'=>$lesVisiteurs));
     }
 
