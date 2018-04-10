@@ -39,7 +39,7 @@ class Travailler
     /**
      * @var int
      * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Visiteur")
-     * @ORM\Column(name="matricule_vis", type="integer")
+     * @ORM\JoinColumn(nullable=false, name="matricule_vis", referencedColumnName="id")
      */
     private $matriculeVis;
 

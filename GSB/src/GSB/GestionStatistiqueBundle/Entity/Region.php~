@@ -23,7 +23,7 @@ class Region
 
     /**
 	 * @ORM\Column(name="code_sec_id", type="integer")
-     * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
+     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
      * @ORM\JoinColumn(nullable=false)
      */
     private $codeSec;
