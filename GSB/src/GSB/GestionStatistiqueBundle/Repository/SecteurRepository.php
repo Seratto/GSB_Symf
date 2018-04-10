@@ -15,13 +15,11 @@ class SecteurRepository extends \Doctrine\ORM\EntityRepository
         $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
         $qb = $repository->createQueryBuilder('Secteur');
         return $qb
-            ->select('S.libelleSec, COUNT(T.id) AS nbVisiteurs')
-            ->from('GSBGestionStatistiqueBundle:Secteur', 'S')
-            ->from('GSBGestionStatistiqueBundle:Region', 'R')
-            ->from('GSBGestionStatistiqueBundle:Travailler', 'T')
-            ->where('S.id = R.codeSec')
-            ->andWhere('R.id = T.codeReg')
-            ->groupBy('S.libelleSec')
+            ->select('s.libelleSec, COUNT(v.id) AS nbVisiteurs')
+            ->from('GSBGestionStatistiqueBundle:Secteur', 's')
+            ->from('GSBGestionStatistiqueBundle:Visiteur', 'v')
+            ->where('s.id = v.codeSecteur')
+            ->groupBy('s.libelleSec')
             ->getQuery()
             ->getResult();
     }
