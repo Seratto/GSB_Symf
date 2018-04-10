@@ -10,4 +10,19 @@ namespace GSB\GestionStatistiqueBundle\Repository;
  */
 class SecteurRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getNbVisiteurs()
+    {
+        $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
+        $qb = $repository->createQueryBuilder('Secteur');
+        return $qb
+            ->select('S.libelleSec, COUNT(T.id) AS nbVisiteurs')
+            ->from('GSBGestionStatistiqueBundle:Secteur', 'S')
+            ->from('GSBGestionStatistiqueBundle:Region', 'R')
+            ->from('GSBGestionStatistiqueBundle:Travailler', 'T')
+            ->where('S.codeSec = R.codeSec')
+            ->andWhere('R.codeReg = T.code_reg')
+            ->groupBy('S.libelle_sec')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

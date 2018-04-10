@@ -45,10 +45,10 @@ class DefaultController extends Controller
 
     public function afficherStatSecteurAction()
     {
-        $rep = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
-		$lesSecteurs = $rep->findAll();
-        $nbsVisiteurs = array();
-        return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('lesSecteurs'=>$lesSecteurs));
+        $visiteursParSecteur = array();
+        $repository = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
+        $visiteursParSecteur = $repository->getNbVisiteurs();
+        return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('lesSecteurs'=>$lesSecteurs, 'visiteursParSecteur'=>$visiteursParSecteur));
     }
 
     public function afficherVisiteursRegionAction($idReg)
