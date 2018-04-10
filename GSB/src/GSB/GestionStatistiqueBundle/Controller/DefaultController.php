@@ -48,7 +48,7 @@ class DefaultController extends Controller
         $visiteursParSecteur = array();
         $repository = $this->getDoctrine()->getManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
         $visiteursParSecteur = $repository->getNbVisiteurs();
-        return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('lesSecteurs'=>$lesSecteurs, 'visiteursParSecteur'=>$visiteursParSecteur));
+        return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('visiteursParSecteur'=>$visiteursParSecteur));
     }
 
     public function afficherVisiteursRegionAction($idReg)
