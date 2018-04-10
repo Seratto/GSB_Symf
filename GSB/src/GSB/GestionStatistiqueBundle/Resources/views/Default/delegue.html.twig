@@ -5,11 +5,31 @@
   <h2>Liste des délégués</h2>
 	   <p>Tous les délégués toutes régions
 confondues</p>
-  <table class="table table-hover">
-	  <tr>
-		  <td>
-	  		{{ liste.role travailler }}
-		  </td>
-	  </tr>
-	   </table>
+	   <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Matricule</th>
+        <th>Nom</th>
+		<th>Adresse</th>
+		<th>Ville</th>
+		<th>Code Postal</th>
+		<th>Département</th>
+		<th>Secteur</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% set inc = 0 %}
+        {% for unVisiteur in liste %}
+      <tr>
+        <td>{{ unVisiteur.id }}</td>
+        <td>{{ unVisiteur.nomVis }}</td>
+        <td>{{ unVisiteur.adresseVis }}</td>
+        <td>{{ unVisiteur.villeVis }}</td>
+        <td>{{ unVisiteur.cpVis }}</td>
+        <td>{{ unVisiteur.nomDep }}</td>
+        <td>{{ unVisiteur.libelleSec }}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}

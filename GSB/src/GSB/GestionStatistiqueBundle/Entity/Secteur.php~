@@ -86,4 +86,18 @@ class Secteur
     {
         return $this->libelleSec;
     }
+
+    public static function getNbVisiteurs()
+    {
+        $em = $this->getDoctrice()->getManager(); //on appelle Doctrine
+        $query = $em->createQuery( //création de la requête
+            'SELECT   S.libelleSecteur, COUNT(*) AS nbVisiteurs
+                    FROM     Secteur S, Region R, Travailler T
+                    WHERE    S.CodeSecteur = R.CodeSecteur AND
+                             R.CodeRegion = T.CodeRegion
+                    GROUP BY S.libelleSecteur'
+            )->setParameter(1, $codeSecteur);
+        $nbVisiteur = $query->getResult(); //variable qui récupère la requête
+        return $nbVisiteur;
+    }
 }

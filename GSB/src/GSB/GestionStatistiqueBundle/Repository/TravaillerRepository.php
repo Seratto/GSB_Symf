@@ -29,9 +29,21 @@ class TravaillerRepository extends \Doctrine\ORM\EntityRepository
         return $qb
             ->select('count(Travailler.matriculeVis)')
             ->where("Travailler.codeReg = ?1")
-            ->andWhere("Travailler.roleTrav = 'délégué'")
+            ->andWhere("Travailler.roleTrav = 'Délégué'")
             ->setParameter(1, $idRegion)
             ->getQuery()
             ->getSingleScalarResult();
+    }
+
+    public function getVisiteursDeLaRegion($idRegion)
+    {
+        $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Visiteur');
+        $qb = $repository->createQueryBuilder('Visiteur');
+        return $qb
+                    ->join('Visiteur.id', 'Travailler')
+                    //->where("Travailler.codeReg = ?1")
+                    //->setParameter(1, $idRegion)
+                    ->getQuery()
+                    ->getResult();
     }
 }

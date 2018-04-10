@@ -20,10 +20,11 @@ class DefaultController extends Controller
   			->getDoctrine()
   			->getManager()
   			->getRepository('GSBGestionStatistiqueBundle:Visiteur');
+		$listVisiteur = $repository->getDepartement();
 
-		$listVisiteur = $repository->findAll();
+		var_dump($listVisiteur);
 
-		return $this->render('GSBGestionStatistiqueBundle:Default:delegue.html.twig',array('liste',$listVisiteur));
+		return $this->render('GSBGestionStatistiqueBundle:Default:delegue.html.twig',array('liste'=>$listVisiteur));
 	}
 
     public function afficherStatRegionAction()
@@ -50,9 +51,10 @@ class DefaultController extends Controller
         return $this->render('GSBGestionStatistiqueBundle:Default:secteur.html.twig', array('lesSecteurs'=>$lesSecteurs, 'visiteursParSecteur'=>$visiteursParSecteur));
     }
 
-    public function afficherVisiteursRegionAction($idRegion)
+    public function afficherVisiteursRegionAction($idReg)
     {
-        $lesVisiteurs = Travailler::getVisiteursRegion($idRegion);
+        $repository = $this->getDoctrine()->getRepository('GSBGestionStatistiqueBundle:Travailler');
+        $lesVisiteurs = $repository->getVisiteursDeLaRegion($idReg);
         return $this->render('GSBGestionStatistiqueBundle:Default:region.html.twig', array('lesVisiteurs'=>$lesVisiteurs));
     }
 

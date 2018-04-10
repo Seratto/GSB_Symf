@@ -24,7 +24,7 @@ class Travailler
 
     /**
      * @ORM\Column(name="code_reg", type="integer")
-	 * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Region")
+	 * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Region")
 	 * @ORM\JoinColumn(nullable=false)
      */
     private $codeReg;
@@ -38,7 +38,7 @@ class Travailler
 
     /**
      * @var int
-     *
+     * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Visiteur")
      * @ORM\Column(name="matricule_vis", type="integer")
      */
     private $matriculeVis;
@@ -157,13 +157,5 @@ class Travailler
         return $this->roleTrav;
     }
 
-    public static function getVisiteursRegion($idRegion)
-    {
-        return $this->createQueryBuilder('Visiteur')
-                    ->join('Visiteur.matriculeVisiteur', 'Travailler')
-                    ->where("Travailler.codeRegion = ?1")
-                    ->setParameter(1, $idRegion)
-                    ->getQuery()
-                    ->getResult();
-    }
+
 }

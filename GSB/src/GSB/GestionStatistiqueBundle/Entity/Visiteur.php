@@ -22,14 +22,14 @@ class Visiteur
     private $id;
     /**
 	 * @ORM\Column(name="code_sec", type="integer")
-     * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
+     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
      * @ORM\JoinColumn(nullable=true)
      */
     private $codeSecteur;
 
     /**
      * @ORM\Column(name="code_dep", type="integer")
-	 * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Departement")
+	 * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Departement")
      * @ORM\JoinColumn(nullable=false)
      */
     private $codeDep;
