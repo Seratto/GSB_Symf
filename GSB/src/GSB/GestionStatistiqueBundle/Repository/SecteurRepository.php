@@ -19,10 +19,10 @@ class SecteurRepository extends \Doctrine\ORM\EntityRepository
             ->from('GSBGestionStatistiqueBundle:Secteur', 'S')
             ->from('GSBGestionStatistiqueBundle:Region', 'R')
             ->from('GSBGestionStatistiqueBundle:Travailler', 'T')
-            ->where('S.codeSec = R.codeSec')
-            ->andWhere('R.codeReg = T.code_reg')
-            ->groupBy('S.libelle_sec')
+            ->where('S.id = R.codeSec')
+            ->andWhere('R.id = T.codeReg')
+            ->groupBy('S.libelleSec')
             ->getQuery()
-            ->getSingleScalarResult();
+            ->getResult();
     }
 }
