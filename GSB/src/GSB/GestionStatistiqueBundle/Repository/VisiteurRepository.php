@@ -24,6 +24,7 @@ class VisiteurRepository extends \Doctrine\ORM\EntityRepository
 					->andWhere('v.codeSecteur = s.id')
 					->andWhere('v.id = t.matriculeVis')
 					->andWhere("t.roleTrav = 'Délégué'")
+					->groupBy('v.id')
                     ->getQuery()
                     ->getResult();
 	}

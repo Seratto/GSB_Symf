@@ -12,13 +12,11 @@
       </tr>
     </thead>
     <tbody>
-        {% set inc = 1 %}
-        {% for unSecteur in lesSecteurs %}
+        {% for unVisiteurParSecteur in visiteursParSecteur %}
       <tr>
-        <td>{{ unSecteur.libelleSec }}</td>
-        <td>{{ unSecteur.visiteursParSecteur }}</td>
+        <td>{{ unVisiteurParSecteur.libelleSec }}</td>
+        <td>{{ unVisiteurParSecteur.nbVisiteurs }}</td>
       </tr>
-        {% set inc = inc+1 %}
         {% endfor %}
     </tbody>
   </table>
