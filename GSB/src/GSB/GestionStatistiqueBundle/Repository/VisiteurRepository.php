@@ -15,7 +15,7 @@ class VisiteurRepository extends \Doctrine\ORM\EntityRepository
 
         $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Visiteur');
         $qb = $repository->createQueryBuilder('Visiteur');
-        return $qb	->select('v.id','v.adresseVis','v.nomVis','v.cpVis','v.villeVis','d.nomDep','s.libelleSec')
+        return $qb	->select('v.id','v.adresseVis','v.nomVis','v.cpVis','v.villeVis','v.dateEmbauche','d.nomDep','s.libelleSec')
 			        ->from('GSBGestionStatistiqueBundle:Visiteur','v')
 			        ->from('GSBGestionStatistiqueBundle:Departement','d')
 			        ->from('GSBGestionStatistiqueBundle:Secteur','s')
