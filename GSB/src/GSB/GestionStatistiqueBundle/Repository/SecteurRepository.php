@@ -13,13 +13,12 @@ class SecteurRepository extends \Doctrine\ORM\EntityRepository
     public function getNbVisiteurs()
     {
         $repository = $this->getEntityManager()->getRepository('GSBGestionStatistiqueBundle:Secteur');
-        $qb = $repository->createQueryBuilder('Secteur');
+        $qb = $repository->createQueryBuilder('s');
         return $qb
             ->select('s.libelleSec, COUNT(v.id) AS nbVisiteurs')
-            ->from('GSBGestionStatistiqueBundle:Secteur', 's')
             ->from('GSBGestionStatistiqueBundle:Visiteur', 'v')
             ->where('s.id = v.codeSecteur')
-            ->groupBy('s.libelleSec')
+            ->groupBy('s.id')
             ->getQuery()
             ->getResult();
     }
