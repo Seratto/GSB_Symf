@@ -22,8 +22,6 @@ class DefaultController extends Controller
   			->getRepository('GSBGestionStatistiqueBundle:Visiteur');
 		$listVisiteur = $repository->getDepartement();
 
-		var_dump($listVisiteur);
-
 		return $this->render('GSBGestionStatistiqueBundle:Default:delegue.html.twig',array('liste'=>$listVisiteur));
 	}
 
