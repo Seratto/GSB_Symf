@@ -1,48 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css" type="text/css" />
 {% endblock %}
 
 {% block body %}
     <div class="container">
-    <h2>Visiteur de la région</h2>
-	<p>Détail de chaque visiteur de la région</p>
-
-
-    $builder->add('date_plus_tot', 'date', array(
-                                                'widget' => 'single_text',
-                                                'input' => 'datetime',
-                                                'format' => 'dd/MM/yyyy',
-                                                'attr' => array('class' => 'date'),
-                                                )
-
-
-
-
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Code postal</th>
-                <th>Ville</th>
-                <th>Date d'embauche</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for unVisiteur in lesVisiteurs %}
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <td> {{ unVisiteur.nomVis }} </td>
-                    <td> {{ unVisiteur.adresseVis }} </td>
-                    <td> {{ unVisiteur.cpVis }} </td>
-                    <td> {{ unVisiteur.villeVis }} </td>
-                    <td> {{ unVisiteur.dateEmbauche|date('Y-m-d') }} </td>
+                    <th>Nom</th>
+                    <th>Adresse</th>
+                    <th>Code postal</th>
+                    <th>Ville</th>
+                    <th>Date d'embauche</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                {% for unVisiteur in lesVisiteurs %}
+                    <tr>
+                        <td> {{ unVisiteur.nomVis }} </td>
+                        <td> {{ unVisiteur.adresseVis }} </td>
+                        <td> {{ unVisiteur.cpVis }} </td>
+                        <td> {{ unVisiteur.villeVis }} </td>
+                        <td> {{ unVisiteur.dateEmbauche|date('Y-m-d') }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
+
