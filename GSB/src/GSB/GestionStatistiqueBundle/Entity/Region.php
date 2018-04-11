@@ -22,7 +22,7 @@ class Region
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur", mappedBy="Region")
+     * @ORM\ManyToOne(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
      * @ORM\JoinColumn(nullable=false, name="code_sec_id", referencedColumnName="code_secteur")
      */
     private $codeSec;

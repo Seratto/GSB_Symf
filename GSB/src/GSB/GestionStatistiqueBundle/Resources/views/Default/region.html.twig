@@ -1,9 +1,27 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css" type="text/css" />
+{% endblock %}
+
 {% block body %}
     <div class="container">
     <h2>Visiteur de la région</h2>
 	<p>Détail de chaque visiteur de la région</p>
+
+
+    $builder->add('date_plus_tot', 'date', array(
+                                                'widget' => 'single_text',
+                                                'input' => 'datetime',
+                                                'format' => 'dd/MM/yyyy',
+                                                'attr' => array('class' => 'date'),
+                                                )
+
+
+
+
     <table class="table table-hover">
         <thead>
             <tr>
