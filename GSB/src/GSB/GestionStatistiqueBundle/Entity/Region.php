@@ -22,9 +22,8 @@ class Region
     private $id;
 
     /**
-	 * @ORM\Column(name="code_sec_id", type="integer")
-     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur", mappedBy="Region")
+     * @ORM\JoinColumn(nullable=false, name="code_sec_id", referencedColumnName="code_secteur")
      */
     private $codeSec;
 
@@ -190,5 +189,29 @@ class Region
     public function getTravail()
     {
         return $this->travail;
+    }
+
+    /**
+     * Add codeSec
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Secteur $codeSec
+     *
+     * @return Region
+     */
+    public function addCodeSec(\GSB\GestionStatistiqueBundle\Entity\Secteur $codeSec)
+    {
+        $this->codeSec[] = $codeSec;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeSec
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Secteur $codeSec
+     */
+    public function removeCodeSec(\GSB\GestionStatistiqueBundle\Entity\Secteur $codeSec)
+    {
+        $this->codeSec->removeElement($codeSec);
     }
 }

@@ -22,9 +22,8 @@ class Region
     private $id;
 
     /**
-	 * @ORM\Column(name="code_sec_id", type="integer")
-     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur", mappedBy="Region")
+     * @ORM\JoinColumn(nullable=false, name="code_sec_id", referencedColumnName="code_secteur")
      */
     private $codeSec;
 

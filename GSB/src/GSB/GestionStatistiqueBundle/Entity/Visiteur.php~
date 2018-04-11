@@ -20,18 +20,16 @@ class Visiteur
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
+
     /**
-	 * @ORM\Column(name="code_sec", type="integer")
-     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur", mappedBy="Visiteur")
+     * @ORM\JoinColumn(nullable=false, name="code_sec", referencedColumnName="code_secteur")
      */
     private $codeSecteur;
 
     /**
-     * @ORM\Column(name="code_dep", type="integer")
-	 * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Departement")
-     * @ORM\JoinColumn(nullable=false)
+	 * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Departement", mappedBy="Visiteur")
+     * @ORM\JoinColumn(nullable=false, name="code_dep", referencedColumnName="code_dep")
      */
     private $codeDep;
 

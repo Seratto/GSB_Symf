@@ -22,16 +22,14 @@ class Visiteur
     private $id;
 
     /**
-	 * @ORM\Column(name="code_sec", type="integer")
-     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Secteur", mappedBy="Visiteur")
+     * @ORM\JoinColumn(nullable=false, name="code_sec", referencedColumnName="code_secteur")
      */
     private $codeSecteur;
 
     /**
-     * @ORM\Column(name="code_dep", type="integer")
-	 * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Departement")
-     * @ORM\JoinColumn(nullable=false)
+	 * @ORM\OneToMany(targetEntity="GSB\GestionStatistiqueBundle\Entity\Departement", mappedBy="Visiteur")
+     * @ORM\JoinColumn(nullable=false, name="code_dep", referencedColumnName="code_dep")
      */
     private $codeDep;
 
@@ -418,5 +416,53 @@ class Visiteur
     public function getCodeSecteur()
     {
         return $this->codeSecteur;
+    }
+
+    /**
+     * Add codeSecteur
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Secteur $codeSecteur
+     *
+     * @return Visiteur
+     */
+    public function addCodeSecteur(\GSB\GestionStatistiqueBundle\Entity\Secteur $codeSecteur)
+    {
+        $this->codeSecteur[] = $codeSecteur;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeSecteur
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Secteur $codeSecteur
+     */
+    public function removeCodeSecteur(\GSB\GestionStatistiqueBundle\Entity\Secteur $codeSecteur)
+    {
+        $this->codeSecteur->removeElement($codeSecteur);
+    }
+
+    /**
+     * Add codeDep
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Departement $codeDep
+     *
+     * @return Visiteur
+     */
+    public function addCodeDep(\GSB\GestionStatistiqueBundle\Entity\Departement $codeDep)
+    {
+        $this->codeDep[] = $codeDep;
+
+        return $this;
+    }
+
+    /**
+     * Remove codeDep
+     *
+     * @param \GSB\GestionStatistiqueBundle\Entity\Departement $codeDep
+     */
+    public function removeCodeDep(\GSB\GestionStatistiqueBundle\Entity\Departement $codeDep)
+    {
+        $this->codeDep->removeElement($codeDep);
     }
 }
